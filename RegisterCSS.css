@@ -1,6 +1,6 @@
 form{
     width: 100%;
-    height: 60%;
+    height: 65%;
     margin-left: auto;
     margin-right: auto;
     /*margin: auto;
@@ -29,7 +29,7 @@ label{
     font-size: large;
 }
 
-#email, #password, #passwordrep{
+#email, #password, #passwordrep, #usernameinput{
     height: 12%;
     font-size: medium;
 }

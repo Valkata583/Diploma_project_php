@@ -19,7 +19,9 @@ if (isset($_POST["but"])) {
             $row = mysqli_fetch_assoc($result);
             $_SESSION["username"] = $row['username'];
             $_SESSION["email"] = $row['email'];
+            $_SESSION["user_id"] = $row['id'];
             echo "Login successful! Welcome, " . $_SESSION["username"];
+            header("Location:index.php");
         } else {
             echo "Invalid email or password. Please try again.";
         }
@@ -31,26 +33,31 @@ if (isset($_POST["but"])) {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>LogIn</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <link href="LogInCSS.css" rel="stylesheet" type="text/css"/>
+    <link href="LogInCSS.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
+
     <h1>Влизане в профил</h1>
     <div id="LogIn">
-        
+
         <form id="LogInForm" method="post">
             <label for="email">E-mail:</label>
             <input id="email" type="email" name="email" required>
             <label for="password">Парола:</label>
             <input id="password" type="password" name="password" required>
-            
+
             <input id="but" type="submit" value="Влизане" name="but">
-            <p>Нямаш профил? <a href="Register.php">Регистррай се</a></p>
+            <p>Нямаш профил? <a href="Register.php">Регистрирай се</a></p>
         </form>
     </div>
+
 </body>
+
 </html>

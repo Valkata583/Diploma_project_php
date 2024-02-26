@@ -1,14 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('images/loginback.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            color: white; 
+            overflow: hidden;
+}
+
 form{
-    width: 100%;
+    width: 70%;
     height: 60%;
     margin-left: auto;
     margin-right: auto;
-    /*margin: auto;
-    margin-top: 200px;*/
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
 h1{
@@ -20,7 +29,7 @@ div{
     position: absolute;
     top: 35%;
     left: 30%;
-    border: 1px solid;
+    /*border: 1px solid; /*border*/
     width: 40%;
     height: 50%;
 }

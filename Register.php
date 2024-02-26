@@ -19,10 +19,10 @@ if (isset($_POST["but"])) {
             // Check which field (email or username) is causing the conflict
             while ($row = mysqli_fetch_assoc($result)) {
                 if ($row['username'] === $username) {
-                    echo "Username already exists. Please choose a different one.";
+                    echo "<span>Username already exists. Please choose a different one.</span>";
                 }
                 if ($row['email'] === $email) {
-                    echo "Email already exists. Please use a different one.";
+                    echo "<span>Email already exists. Please use a different one.</span>";
                 }
             }
         } else {
@@ -35,11 +35,12 @@ if (isset($_POST["but"])) {
                 $_SESSION["username"] = $username;
                 $_SESSION["pass"] = $password;
                 $_SESSION["email"] = $email;
-                echo "Registration successful!";
+                echo "<span>Registration successful!</span>";
+                header("Location:LogIn.php");
             }
         }
     } else {
-        echo "Not fulfilled or passwords do not match.";
+        echo "<span>Not fulfilled or passwords do not match.</span>";
     }
 }
 

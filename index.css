@@ -6,7 +6,7 @@ body{
 
 /*Left menu*/
 #left_menu {
-  width: 12%;
+  width: 13%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -60,12 +60,30 @@ section {
 }
 
 /*Choose car*/
-#car_choose{
+#car_choose {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   width: 100%;
+  margin-top: 20px;
 }
+
+#car_choose > button {
+  flex-basis: 200px;
+  padding: 20px 10px;
+  border-radius: 10px;
+  background: linear-gradient(30deg, #1A2980, #26D0CE);
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  transition: 0.3s ease; /* Transition background color */
+}     
+
+#car_choose > button:hover {
+  background: linear-gradient(30deg, rgb(48, 65, 167), #0c8b89);
+}
+
+
 
 /*Add car*/
 #car_add{
@@ -103,7 +121,8 @@ section {
 
 /*Close button*/
 .close{
-  margin-left: 42.6vw;
+  /* margin-left: 42.1vw; */
+  margin-left: auto;
   width: 1.2vw;
    
 }
@@ -111,4 +130,24 @@ section {
 .close:hover{
   color: aliceblue;
   background-color: red;
+}
+
+/*Static data form*/
+#carInfoForm{
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#carInfoForm label{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#consumesForm{
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
 }

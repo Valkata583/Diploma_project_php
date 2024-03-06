@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "database.php";
+include "./data/database.php";
 
 if (isset($_POST["but"])) {
     if (!empty($_POST["email"]) && !empty($_POST["password"]) && !empty($_POST["usernameinput"]) && !empty($_POST["passwordrep"]) && $_POST["password"] == $_POST["passwordrep"]) {

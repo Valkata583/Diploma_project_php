@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Време на генериране: 26 фев 2024 в 16:32
+-- Време на генериране:  4 март 2024 в 18:26
 -- Версия на сървъра: 10.4.28-MariaDB
 -- Версия на PHP: 8.2.4
 
@@ -24,12 +24,12 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура на таблица `comsumes`
+-- Структура на таблица `consumes`
 --
 
-CREATE TABLE `comsumes` (
-  `id_coms` int(11) NOT NULL,
-  `comsume_type` varchar(120) DEFAULT NULL,
+CREATE TABLE `consumes` (
+  `id_cons` int(11) NOT NULL,
+  `consume_type` varchar(120) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `kilometers` int(11) DEFAULT NULL,
   `description` text DEFAULT NULL,
@@ -86,7 +86,12 @@ CREATE TABLE `static_data` (
 
 INSERT INTO `static_data` (`license`, `car_owner`, `brand`, `model`, `coupe`, `type_engine`, `hp`, `wheels`, `tyres`, `oil_type`, `production_year`, `gearbox`, `cubic`, `kilometers`) VALUES
 ('CA7672AB', 1, 'Renault', 'Clio', 'hatchback', 'Бензин', 75, '16', '250/50/123', 'f4w10', '2013', 'Ръчна', 2, 150000),
-('CB7064XM', 1, 'Renault', 'Clio', 'hatchback', 'Бензин с газ', 75, '16', '250/50/123', 'f4w10', '2013', 'Ръчна', 2, 150000);
+('CA7672AА', 1, 'Renault', 'Clio', 'hatchback', 'Бензин', 75, '16', '250/50/123', 'f4w10', '2013', 'Ръчна', 2, 150000),
+('CB7064XA', 1, 'Renault', '330', 'coupe', 'Бензин', 75, '18', '250/50/123', 'f4w10', '2003', 'Ръчна', 2, 150000),
+('CB7064XM', 1, 'Renault', 'Clio', 'hatchback', 'Бензин с газ', 75, '16', '250/50/123', 'f4w10', '2013', 'Ръчна', 2, 150000),
+('CB8888MA', 1, 'BMW', '330', 'coupe', 'Бензин', 175, '18', '250/50/123', 'f4w10', '2003', 'Ръчна', 3, 150000),
+('CB8888MM', 1, 'BMW', '330', 'coupe', 'Бензин', 175, '18', '250/50/123', 'f4w10', '2003', 'Ръчна', 3, 150000),
+('CB8888MN', 1, 'BMW', '330', 'coupe', 'Бензин', 175, '18', '250/50/123', 'f4w10', '2003', 'Ръчна', 3, 150000);
 
 -- --------------------------------------------------------
 
@@ -130,10 +135,10 @@ INSERT INTO `users` (`id`, `password`, `email`, `username`) VALUES
 --
 
 --
--- Индекси за таблица `comsumes`
+-- Индекси за таблица `consumes`
 --
-ALTER TABLE `comsumes`
-  ADD PRIMARY KEY (`id_coms`),
+ALTER TABLE `consumes`
+  ADD PRIMARY KEY (`id_cons`),
   ADD KEY `fk_Comsumes_Static_Data1_idx` (`car`),
   ADD KEY `fk_Comsumes_Repair_Shop1_idx` (`repair_shop`);
 
@@ -169,10 +174,10 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `comsumes`
+-- AUTO_INCREMENT for table `consumes`
 --
-ALTER TABLE `comsumes`
-  MODIFY `id_coms` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `consumes`
+  MODIFY `id_cons` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `repair_shop`
@@ -197,9 +202,9 @@ ALTER TABLE `users`
 --
 
 --
--- Ограничения за таблица `comsumes`
+-- Ограничения за таблица `consumes`
 --
-ALTER TABLE `comsumes`
+ALTER TABLE `consumes`
   ADD CONSTRAINT `fk_Comsumes_Repair_Shop1` FOREIGN KEY (`repair_shop`) REFERENCES `repair_shop` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_Comsumes_Static_Data1` FOREIGN KEY (`car`) REFERENCES `static_data` (`license`) ON DELETE CASCADE;
 

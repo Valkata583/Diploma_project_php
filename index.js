@@ -3,6 +3,10 @@ let close = document.getElementsByClassName("close");
 let form = document.getElementById("car_add");
 let staticData = document.getElementById("carInfoForm");
 let consumes = document.getElementById("consumesForm");
+let repairShopButton=document.getElementById("repairShopButton");
+let carChoose=document.getElementById("car_choose");
+let carsButton=document.getElementById("carsButton");
+let repairShopInfo=document.getElementById("repairShopInfo");
 
 function addForm() {
   form.style.display = "flex";
@@ -84,6 +88,33 @@ document.addEventListener("DOMContentLoaded", function () {
     // }
   });
 });
+
+//Repair shop button
+function repairShopForm(){
+  staticData.style.display="none";
+  carChoose.style.display="none";
+  addButton.style.display="none";
+}
+
+
+$(document).ready(function() {
+  $('#repairShopButton').click(function() {
+    $.ajax({
+      url: 'repairShopInfo.php', // PHP file that contains your PHP code
+      method: 'POST',
+      success: function(response) {
+        $('#div_right').html(response); // Display the response in the div
+      }
+    });
+  });
+});
+
+
+function cars(){
+  carChoose.style.display="flex";
+  addButton.style.display="block";
+  repairShopInfo.style.display="none"
+}
 
 // Wait for the document to be fully loaded
 // $(document).ready(function() {

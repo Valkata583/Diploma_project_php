@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Време на генериране:  4 март 2024 в 18:26
+-- Време на генериране:  8 март 2024 в 08:18
 -- Версия на сървъра: 10.4.28-MariaDB
 -- Версия на PHP: 8.2.4
 
@@ -47,15 +47,9 @@ CREATE TABLE `consumes` (
 CREATE TABLE `repair_shop` (
   `id` int(3) NOT NULL,
   `name` varchar(45) DEFAULT NULL,
-  `phone_number` char(10) DEFAULT NULL
+  `phone_number` char(10) DEFAULT NULL,
+  `customers` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Схема на данните от таблица `repair_shop`
---
-
-INSERT INTO `repair_shop` (`id`, `name`, `phone_number`) VALUES
-(2, 'asd', '0888123132');
 
 -- --------------------------------------------------------
 
@@ -85,6 +79,8 @@ CREATE TABLE `static_data` (
 --
 
 INSERT INTO `static_data` (`license`, `car_owner`, `brand`, `model`, `coupe`, `type_engine`, `hp`, `wheels`, `tyres`, `oil_type`, `production_year`, `gearbox`, `cubic`, `kilometers`) VALUES
+('CA1111AA', 1, 'Citroen', 'C3', 'hatchback', 'Бензин', 75, '16', '250/50/123', 'f4w10', '2003', 'Ръчна', 2, 150000),
+('CA1111AB', 1, 'Toyota', 'Yaris', 'hatchback', 'Бензин', 75, '16', '250/50/123', 'f4w10', '2013', 'Ръчна', 2, 150000),
 ('CA7672AB', 1, 'Renault', 'Clio', 'hatchback', 'Бензин', 75, '16', '250/50/123', 'f4w10', '2013', 'Ръчна', 2, 150000),
 ('CA7672AА', 1, 'Renault', 'Clio', 'hatchback', 'Бензин', 75, '16', '250/50/123', 'f4w10', '2013', 'Ръчна', 2, 150000),
 ('CB7064XA', 1, 'Renault', '330', 'coupe', 'Бензин', 75, '18', '250/50/123', 'f4w10', '2003', 'Ръчна', 2, 150000),
@@ -146,7 +142,8 @@ ALTER TABLE `consumes`
 -- Индекси за таблица `repair_shop`
 --
 ALTER TABLE `repair_shop`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_repair_shop_users` (`customers`);
 
 --
 -- Индекси за таблица `static_data`
@@ -177,7 +174,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `consumes`
 --
 ALTER TABLE `consumes`
-  MODIFY `id_cons` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cons` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `repair_shop`
@@ -195,7 +192,7 @@ ALTER TABLE `unplaned_repairs`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ограничения за дъмпнати таблици
@@ -207,6 +204,12 @@ ALTER TABLE `users`
 ALTER TABLE `consumes`
   ADD CONSTRAINT `fk_Comsumes_Repair_Shop1` FOREIGN KEY (`repair_shop`) REFERENCES `repair_shop` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_Comsumes_Static_Data1` FOREIGN KEY (`car`) REFERENCES `static_data` (`license`) ON DELETE CASCADE;
+
+--
+-- Ограничения за таблица `repair_shop`
+--
+ALTER TABLE `repair_shop`
+  ADD CONSTRAINT `fk_repair_shop_users` FOREIGN KEY (`customers`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Ограничения за таблица `static_data`

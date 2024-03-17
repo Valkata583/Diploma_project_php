@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Време на генериране:  8 март 2024 в 08:18
+-- Време на генериране: 16 март 2024 в 20:52
 -- Версия на сървъра: 10.4.28-MariaDB
 -- Версия на PHP: 8.2.4
 
@@ -46,10 +46,17 @@ CREATE TABLE `consumes` (
 
 CREATE TABLE `repair_shop` (
   `id` int(3) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
+  `name_repair_shop` varchar(45) DEFAULT NULL,
   `phone_number` char(10) DEFAULT NULL,
   `customers` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Схема на данните от таблица `repair_shop`
+--
+
+INSERT INTO `repair_shop` (`id`, `name_repair_shop`, `phone_number`, `customers`) VALUES
+(1, 'asd', '0888123132', 1);
 
 -- --------------------------------------------------------
 
@@ -124,7 +131,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `password`, `email`, `username`) VALUES
-(1, '123', 'v.test@gamil.com', 'VD');
+(1, '123', 'v.test@gamil.com', 'VD'),
+(4, '456', 'kvd_bg@abv.bg', 'kir');
 
 --
 -- Indexes for dumped tables
@@ -192,7 +200,7 @@ ALTER TABLE `unplaned_repairs`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Ограничения за дъмпнати таблици

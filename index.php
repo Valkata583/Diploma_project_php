@@ -3,7 +3,6 @@ include("./data/database.php");
 session_start();
 $user_id = $_SESSION["user_id"];
 
-
 if (!isset($_SESSION["user_id"])) {
     // Redirect the user to the login page if not logged in
 
@@ -29,33 +28,37 @@ if (isset($_POST["out"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href="index.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
     <!-- header -->
     <?php include("./functions/header.php"); ?>
-
+    
     <!-- Car Chooser -->
     <?php include ("./functions/carChoose.php"); ?>
-
+    
     <section>
-        <!-- left menu -->
+        <!-- Left menu -->
         <?php include ("./functions/leftMenu.php");?>
         
         <!-- Right side -->
         <div id="div_right">
             
-        <!-- add car -->
+            <!-- Add car -->
             <?php include ("./functions/addCar.php"); ?>
-
-        <!-- Car data -->
+            
+            <!-- Car data -->
             <?php include ("./functions/carInfo.php"); ?> 
             
-        <!-- Service data -->
-            <?php include ("./functions/repairShopInfo.php"); ?>    
+            <!-- Service data -->
+            <?php include ("./functions/repairShopInfo.php"); ?>
+            
+            <!-- Add service -->
+            <?php include("./functions/addRepairShop.php"); ?> 
 
-            <form id="consumesForm" action="index.php" method="POST">
+            <!-- <form id="consumesForm" action="index.php" method="POST">
                 <?php
                 if (isset($_POST['consumesName'])) {
                     $car = $_POST['consumesName'];
@@ -84,7 +87,7 @@ if (isset($_POST["out"])) {
 
                 ?>
                 <input type="hidden" id="consumeInput" name="consumesName">
-            </form>
+            </form> -->
 
             <!-- <label>Вид консуматив:</label>
                 <label>Вид консуматив: </label>

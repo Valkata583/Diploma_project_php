@@ -1,6 +1,5 @@
 <?php
 $username = $_SESSION["username"];
-
 echo "
 <header>
 <form method='POST'>

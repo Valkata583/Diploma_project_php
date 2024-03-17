@@ -6,7 +6,9 @@ let consumes = document.getElementById("consumesForm");
 let repairShopButton=document.getElementById("repairShopButton");
 let carChoose=document.getElementById("car_choose");
 let carsButton=document.getElementById("carsButton");
-let repairShopInfo=document.getElementById("repairShopInfo");
+let repairShopsInfo=document.getElementById("repairShopsInfo");
+let addRepairShops=document.getElementById("addRepairShops");
+let addRepairShopBut=document.getElementById("addRepairShopBut");
 
 function addForm() {
   form.style.display = "flex";
@@ -18,40 +20,10 @@ function closeForm() {
   staticData.style.display = "flex";
 }
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     const buttons = document.querySelectorAll('.car-button');
-
-//     buttons.forEach(button => {
-//         button.addEventListener('click', function() {
-//             const license = this.dataset.license;
-//             const xhr = new XMLHttpRequest();
-//             xhr.onreadystatechange = function() {
-//                 if (xhr.readyState === XMLHttpRequest.DONE) {
-//                     if (xhr.status === 200) {
-//                         console.log(xhr.responseText);
-//                         // Handle the response here (display data or update DOM)
-//                     } else {
-//                         console.error('Request failed');
-//                     }
-//                 }
-//             };
-//             xhr.open('GET', 'get_car_info.php?license=' + license, true);
-//             xhr.send();
-//         });
-//     });
-// });
-
-// document.addEventListener('DOMContentLoaded', function() {
-//     const buttons = document.querySelectorAll('.car-button');
-
-//     buttons.forEach(button => {
-//         button.addEventListener('click', function() {
-//             const license = this.dataset.license;
-//             document.getElementById('licenseInput').value = license;
-//             document.getElementById('carInfoForm').submit();
-//         });
-//     });
-// });
+function closeForm1(){
+  addRepairShops.style.display="none";
+  repairShopsInfo.style.display="flex";
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   const buttons = document.querySelectorAll(".car-button");
@@ -63,11 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (licenseInput) {
         licenseInput.value = license;
         document.getElementById("carInfoForm").submit();
-        // const currentUrl = window.location.href;
-
-        // // Append the license as a query parameter to the current URL
-        // const urlWithLicense = currentUrl + '?license=' + encodeURIComponent(license);
-        // console.log('Updated URL:', urlWithLicense);
       } else {
         console.error('Element with ID "licenseInput" not found');
       }
@@ -89,31 +56,40 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+//Cars Button
+function cars(){
+  carChoose.style.display="flex";
+  addButton.style.display="block";
+  repairShopsInfo.style.display="none";
+  addRepairShops.style.display="none";
+}
+
 //Repair shop button
 function repairShopForm(){
   staticData.style.display="none";
   carChoose.style.display="none";
   addButton.style.display="none";
+  repairShopsInfo.style.display="flex";
 }
 
 
 $(document).ready(function() {
-  $('#repairShopButton').click(function() {
+$('#repairShopButton').click(function() {
     $.ajax({
-      url: 'repairShopInfo.php', // PHP file that contains your PHP code
+      url: 'functions/repairShopInfo.php', // PHP file that contains your PHP code to fetch repair shop info
       method: 'POST',
       success: function(response) {
-        $('#div_right').html(response); // Display the response in the div
+        $('#repairShopsInfo').html(response); // Display the response in the div
       }
     });
   });
 });
 
 
-function cars(){
-  carChoose.style.display="flex";
-  addButton.style.display="block";
-  repairShopInfo.style.display="none"
+//Open form for adding repair shop
+function repairShopAddForm(){
+  repairShopsInfo.style.display="none";
+  addRepairShops.style.display="flex";
 }
 
 // Wait for the document to be fully loaded

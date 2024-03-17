@@ -151,3 +151,27 @@ section {
   margin-left: auto;
   margin-right: auto;
 }
+
+/*Repair Shop Info*/
+#repairShopsInfo{
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border: 1px solid;
+  width: 50%;
+}
+
+/*Add repair shop button*/
+#addRepairShopBut{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*Add repair shop form*/
+#addRepairShops{
+  display: flex;
+  flex-direction: column;
+}

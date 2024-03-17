@@ -30,5 +30,5 @@ if (isset($_POST['license'])) {
 }
 echo "<input type='hidden' id='licenseInput' name='license'>";
 
-echo "</form>"
+echo "</form>";
 ?>

@@ -73,19 +73,6 @@ function repairShopForm(){
 }
 
 
-$(document).ready(function() {
-$('#repairShopButton').click(function() {
-    $.ajax({
-      url: 'functions/repairShopInfo.php', // PHP file that contains your PHP code to fetch repair shop info
-      method: 'POST',
-      success: function(response) {
-        $('#repairShopsInfo').html(response); // Display the response in the div
-      }
-    });
-  });
-});
-
-
 //Open form for adding repair shop
 function repairShopAddForm(){
   repairShopsInfo.style.display="none";

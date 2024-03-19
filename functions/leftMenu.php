@@ -5,6 +5,6 @@ echo "
             <button class='but' id='carsButton' onclick='cars()'>Коли</button>
             <button class='but' name='cons' id='consButton'>Консумативи</button>
             <button class='but'>Ремонти</button>
-            <button class='but' name'repairShopButton' id='repairShopButton' onclick='repairShopForm()'>Сервизи</button>
+            <button class='but' id='repairShopButton' name='repairShopButton' onclick='repairShopForm()'>Сервизи</button>
         </div>";
 ?>

@@ -1,6 +1,6 @@
 <?php
-include("./data/database.php");
 session_start();
+include("./data/database.php");
 $user_id = $_SESSION["user_id"];
 
 if (!isset($_SESSION["user_id"])) {
@@ -17,6 +17,7 @@ if (isset($_POST["out"])) {
     header("Location: LogIn.php");
     exit;
 }
+
 
 ?>
 

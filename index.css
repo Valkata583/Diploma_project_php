@@ -154,13 +154,13 @@ section {
 
 /*Repair Shop Info*/
 #repairShopsInfo{
-  display: flex;
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   border: 1px solid;
   width: 50%;
+  height: 500px;
 }
 
 /*Add repair shop button*/

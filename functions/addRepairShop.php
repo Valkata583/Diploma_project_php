@@ -8,9 +8,7 @@ if (isset($_POST["repairShopAddBut"])) {
         $stmt = $conn->prepare("INSERT INTO repair_shop (name_repair_shop, phone_number, customers) VALUES (?, ?, ?)");
         $stmt->bind_param("ssi", $nameRepairShop, $phoneNumber, $user,);
         if ($stmt->execute()) {
-            // Redirect after successful form submission
             echo "Service added successfully";
-            //header("Location: index.php");
             echo"<script>window.location.href='index.php';</script>";
             exit;
         } else {

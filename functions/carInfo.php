@@ -1,4 +1,5 @@
 <?php
+
 echo "<form id='carInfoForm' action='index.php' method='POST'>";
 if (isset($_POST['license'])) {
     $license = $_POST['license'];
@@ -27,6 +28,9 @@ if (isset($_POST['license'])) {
     echo '<label for="tyres">Големина гуми [широчина/процент от широчината/R]: ' . $row["tyres"] . '</label><br>';
     echo '<label for="kilometers">Пробег [км]: ' . $row["kilometers"] . '</label><br>';
     echo '<label for="oil">Вид на маслото: ' . $row["oil_type"] . '</label><br>';
+
+    // Save the car license in session
+    $_SESSION['carLicense'] = $license;
 }
 echo "<input type='hidden' id='licenseInput' name='license'>";
 

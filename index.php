@@ -59,6 +59,18 @@ if (isset($_POST["out"])) {
             <!-- Add service -->
             <?php include("./functions/addRepairShop.php"); ?> 
 
+            <!-- Unplanned repairs data -->
+            <?php include("./functions/repairInfo.php");?>
+
+            <!-- Add unplanned repairs --> 
+            <?php include("./functions/addRepair.php"); ?>
+
+            <!-- Changed consumes data -->
+            <?php include("./functions/consumeInfo.php"); ?>
+
+            <!-- Add changed consumes -->
+            <?php include("./functions/addConsume.php"); ?>
+
             <!-- <form id="consumesForm" action="index.php" method="POST">
                 <?php
                 if (isset($_POST['consumesName'])) {
@@ -119,11 +131,7 @@ if (isset($_POST["out"])) {
     </section>
 
     <!-- footer -->
-    <footer>
-        <h2>Контакти на админ</h2>
-        <p>Телефон: 0882739564</p>
-        <p>E-mail: v.dupinov@gmail.com</p>
-    </footer>
+    <?php include ("./functions/footer.php");?>
     <script src="index.js"></script>
 </body>
 

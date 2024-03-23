@@ -8,11 +8,14 @@ let carChoose=document.getElementById("car_choose");
 let carsButton=document.getElementById("carsButton");
 let repairShopsInfo=document.getElementById("repairShopsInfo");
 let addRepairShops=document.getElementById("addRepairShops");
-let addRepairShopBut=document.getElementById("addRepairShopBut");
+let repairsInfo=document.getElementById("repairsInfo");
+let addRepairs=document.getElementById("addRepairs");
+let addConsumes=document.getElementById("addConsumes");
+let consInfo=document.getElementById("consInfo");
 
 function addForm() {
-  form.style.display = "flex";
   staticData.style.display = "none";
+  form.style.display = "flex";
 }
 
 function closeForm() {
@@ -23,6 +26,16 @@ function closeForm() {
 function closeForm1(){
   addRepairShops.style.display="none";
   repairShopsInfo.style.display="flex";
+}
+
+function closeForm2(){
+  addRepairs.style.display="none";
+  repairsInfo.style.display="flex";
+}
+
+function closeForm3(){
+  addConsumes.style.display="none";
+  consInfo.style.display="flex";
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -42,26 +55,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const button_consumes = document.getElementById("consButton");
-  button_consumes.addEventListener("click", function () {
-    // const license = this.dataset.license;
-    // const comsumeInput = document.getElementById('comsumeInput');
-    //if (comsumeInput) {
-    //comsumeInput.value = license;
-    document.getElementById("consumesForm").submit();
-    //} else {
-    //console.error('Element with ID "comsumeInput" not found');
-    // }
-  });
-});
 
 //Cars Button
 function cars(){
-  carChoose.style.display="flex";
-  addButton.style.display="block";
   repairShopsInfo.style.display="none";
   addRepairShops.style.display="none";
+  repairsInfo.style.display="none";
+  addRepairs.style.display="none";
+  carChoose.style.display="flex";
+  addButton.style.display="block";
+  
 }
 
 //Repair shop button
@@ -69,14 +72,45 @@ function repairShopForm(){
   staticData.style.display="none";
   carChoose.style.display="none";
   addButton.style.display="none";
+  repairsInfo.style.display="none";
+  addRepairs.style.display="none";
   repairShopsInfo.style.display="flex";
 }
-
 
 //Open form for adding repair shop
 function repairShopAddForm(){
   repairShopsInfo.style.display="none";
   addRepairShops.style.display="flex";
+}
+
+//Repair button
+function repairsForm(){
+  staticData.style.display="none";
+  carChoose.style.display="none";
+  addButton.style.display="none";
+  repairShopsInfo.style.display="none";
+  addRepairs.style.display="none";
+  repairsInfo.style.display="flex";
+}
+
+//Open form for adding repair 
+function repairsAddForm(){
+  repairsInfo.style.display="none";
+  addRepairs.style.display="flex";
+}
+
+//Consumes button
+function consForm(){
+  staticData.style.display="none";
+  carChoose.style.display="none";
+  addButton.style.display="none";
+  repairShopsInfo.style.display="none";
+  consInfo.style.display="flex";
+}
+
+function consAddForm(){
+  consInfo.style.display="none";
+  addConsumes.style.display="flex";
 }
 
 // Wait for the document to be fully loaded

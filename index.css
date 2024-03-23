@@ -158,9 +158,10 @@ section {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  border: 1px solid;
+  /* border: 1px solid; */
   width: 50%;
   height: 500px;
+  overflow-y: scroll;
 }
 
 /*Add repair shop button*/
@@ -174,4 +175,44 @@ section {
 #addRepairShops{
   display: flex;
   flex-direction: column;
+}
+
+/*Add repair form*/
+#addRepairs{
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*Repairs info*/
+#repairsInfo{
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  /* border: 1px solid; */
+  width: 50%;
+  height: 500px;
+  overflow-y: scroll;
+}
+
+/*Add consumes form*/
+#addConsumes{
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*Consumes Info*/
+#consInfo{
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  /* border: 1px solid; */
+  width: 50%;
+  height: 500px;
+  overflow-y: scroll;
 }

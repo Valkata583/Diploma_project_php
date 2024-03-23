@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Време на генериране: 16 март 2024 в 20:52
+-- Време на генериране: 23 март 2024 в 20:49
 -- Версия на сървъра: 10.4.28-MariaDB
 -- Версия на PHP: 8.2.4
 
@@ -30,9 +30,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `consumes` (
   `id_cons` int(11) NOT NULL,
   `consume_type` varchar(120) DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date_cons` date DEFAULT NULL,
   `kilometers` int(11) DEFAULT NULL,
-  `description` text DEFAULT NULL,
+  `description_cons` text DEFAULT NULL,
   `car` char(8) NOT NULL,
   `repair_shop` int(3) NOT NULL,
   `price` double NOT NULL DEFAULT 0
@@ -56,7 +56,13 @@ CREATE TABLE `repair_shop` (
 --
 
 INSERT INTO `repair_shop` (`id`, `name_repair_shop`, `phone_number`, `customers`) VALUES
-(1, 'asd', '0888123132', 1);
+(1, 'asd', '0888123132', 1),
+(2, 'zxc', '0888123131', 1),
+(60, 'zxc', '1224', 1),
+(61, 'zxc', '1225', 1),
+(62, 'zxc', '1223', 1),
+(63, 'The golden nut', '0887374040', 1),
+(64, 'The golden nut Lovech', '0887374041', 1);
 
 -- --------------------------------------------------------
 
@@ -89,6 +95,7 @@ INSERT INTO `static_data` (`license`, `car_owner`, `brand`, `model`, `coupe`, `t
 ('CA1111AA', 1, 'Citroen', 'C3', 'hatchback', 'Бензин', 75, '16', '250/50/123', 'f4w10', '2003', 'Ръчна', 2, 150000),
 ('CA1111AB', 1, 'Toyota', 'Yaris', 'hatchback', 'Бензин', 75, '16', '250/50/123', 'f4w10', '2013', 'Ръчна', 2, 150000),
 ('CA7672AB', 1, 'Renault', 'Clio', 'hatchback', 'Бензин', 75, '16', '250/50/123', 'f4w10', '2013', 'Ръчна', 2, 150000),
+('CA7672AM', 1, 'Citroen', 'C3', 'coupe', 'Бензин', 175, '18', '250/50/123', 'f4w10', '2003', 'Ръчна', 3, 150000),
 ('CA7672AА', 1, 'Renault', 'Clio', 'hatchback', 'Бензин', 75, '16', '250/50/123', 'f4w10', '2013', 'Ръчна', 2, 150000),
 ('CB7064XA', 1, 'Renault', '330', 'coupe', 'Бензин', 75, '18', '250/50/123', 'f4w10', '2003', 'Ръчна', 2, 150000),
 ('CB7064XM', 1, 'Renault', 'Clio', 'hatchback', 'Бензин с газ', 75, '16', '250/50/123', 'f4w10', '2013', 'Ръчна', 2, 150000),
@@ -105,13 +112,21 @@ INSERT INTO `static_data` (`license`, `car_owner`, `brand`, `model`, `coupe`, `t
 CREATE TABLE `unplaned_repairs` (
   `id_repair` int(11) NOT NULL,
   `unplanned_type` varchar(120) DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date_repair` date DEFAULT NULL,
   `kilometers` int(11) DEFAULT NULL,
-  `description` text DEFAULT NULL,
+  `description_repair` text DEFAULT NULL,
   `car` char(8) NOT NULL,
   `repair_shop` int(3) NOT NULL,
   `price` double(10,2) NOT NULL DEFAULT 0.00
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Схема на данните от таблица `unplaned_repairs`
+--
+
+INSERT INTO `unplaned_repairs` (`id_repair`, `unplanned_type`, `date_repair`, `kilometers`, `description_repair`, `car`, `repair_shop`, `price`) VALUES
+(21, 'spring', '2024-03-17', 150000, 'spring', 'CA1111AA', 1, 300.00),
+(22, 'spring', '2024-03-17', 150000, 'left spring', 'CA1111AA', 1, 300.00);
 
 -- --------------------------------------------------------
 
@@ -188,13 +203,13 @@ ALTER TABLE `consumes`
 -- AUTO_INCREMENT for table `repair_shop`
 --
 ALTER TABLE `repair_shop`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `unplaned_repairs`
 --
 ALTER TABLE `unplaned_repairs`
-  MODIFY `id_repair` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_repair` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `users`
